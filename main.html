@@ -6,15 +6,15 @@
     <meta name="description" content="Marc Andrei Marcos Legal Aid Center - Tarlac State University School of Law">
     <meta name="author" content="Marc Andrei Marcos Legal Aid Center">
     <title>Marc Andrei Marcos Legal Aid Center</title>
-    <!-- Importing fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=RoxboroughCF:wght@400;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #061D37; 
+            --primary-color: #061D37;
             --secondary-color: #BD9D61;
             --highlight-color: #EDE8D7;
             --text-color: #333;
-            --font-header: 'RoxboroughCF', sans-serif;
+            --font-header: 'RoxboroughCF';
             --font-body: 'Work Sans', sans-serif;
             --max-width: 1200px;
         }
@@ -61,7 +61,7 @@
         }
 
         h2 {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--primary-color);
             text-align: center;
             font-family: var(--font-header);
@@ -112,7 +112,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 3s ease-in-out;
         }
 
         .slide.active {
@@ -125,6 +125,26 @@
             object-fit: cover;
         }
 
+        .slide button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: var(--secondary-color);
+            border: none;
+            color: var(--highlight-color);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .slide button:hover {
+            background-color: var(--highlight-color);
+        }
+
+        /* Slider Navigation */
         .slider-nav {
             position: absolute;
             bottom: 20px;
@@ -176,27 +196,39 @@
             right: 1px;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .nav-list {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
+        /* Popup Styles */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 999;
+            max-width: 80%; /* Increased width */
+            width: 500px; /* Set a fixed width */
+            max-height: 80%; /* Limit height */
+            overflow-y: auto; /* Allow scrolling if content is too long */
+            text-align: center;
+        }
 
-            .logo-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
+        #popup-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
 
-            .slider {
-                height: 300px;
-            }
+        #popup-content {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
 
-            h1 {
-                font-size: 1.5rem;
-            }
+        #popup-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -204,12 +236,12 @@
     <!-- Header Section -->
     <header class="header">
         <div class="logo-container">
-            <img src="https://th.bing.com/th/id/OIP.1KXbHVlpPl6tOwf5E8f6xQHaHa?rs=1&pid=ImgDetMain" alt="Image" class="logo">
+            <img src="https://th.bing.com/th/id/OIP.1KXbHVlpPl6tOwf5E8f6xQHaHa?rs=1&pid=ImgDetMain" alt="Logo" class="logo">
             <div>
                 <h1>Marc Andrei Marcos Legal Aid Center</h1>
                 <h2>Tarlac State University - School of Law</h2>
             </div>
-            <img src="https://th.bing.com/th/id/OIP.a8XWJr4LzdGyf0O6GB4DrwHaHa?rs=1&pid=ImgDetMain" alt="Image" class="logo">
+            <img src="https://th.bing.com/th/id/OIP.a8XWJr4LzdGyf0O6GB4DrwHaHa?rs=1&pid=ImgDetMain" alt="Logo" class="logo">
         </div>
     </header>
 
@@ -221,7 +253,7 @@
             <li><a href="#legal-help" class="nav-link">Legal Help Guides</a></li>
             <li><a href="#partners" class="nav-link">Our Partners</a></li>
             <li><a href="#clep" class="nav-link">CLEP</a></li>
-            <li><a href="#privacy" class="nav-link">Data Privacy</a></li>
+            <li><a href="privacy.html" class="nav-link">Data Privacy</a></li>
             <li><a href="#contact" class="nav-link">Contact Us</a></li>
         </ul>
     </nav>
@@ -229,17 +261,28 @@
     <!-- Slider Section -->
     <div class="slider">
         <div class="slide active">
-            <img src="https://scontent.fcrk1-5.fna.fbcdn.net/v/t39.30808-6/470204871_122183678762083924_4885402409801891945_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFVP_NWhxPGHkTIgC_BX84SW3sxJnztz91bezEmfO3P3ex9Mhgf0baArJxEycXZ1iYDv_ZalbZUeB2h2o1jZQWE&_nc_ohc=nM9AALSxEdoQ7kNvgGvaPBf&_nc_oc=AdhvWB2adVxN-cmQ6xsb9rSFDkMe2ZB_xW4yvvFrcUU21omw98HHBRxZ3-dnpkDqPQk&_nc_zt=23&_nc_ht=scontent.fcrk1-5.fna&_nc_gid=AUjvYABxM0BG8oD6AsNzMbl&oh=00_AYBa0TLcYGW2CmMTcqancZR88WGrFvOHu6gdMDkk9E5MWw&oe=6781C3B3" alt="Image 1">
+            <img src="images/1.jpg" alt="Image 1">
+            <button onclick="showPopup()">More Info</button>
         </div>
         <div class="slide">
-            <img src="https://scontent.fcrk1-5.fna.fbcdn.net/v/t39.30808-6/468958106_122181532316083924_6623529779347512926_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHsG9Wwd1lKkizeKw68sQMa8rQ4xUYXidnytDjFRheJ2W95HWvbv4ImxEWp2T1DmbvAjET3QYPFusJmtMFSRJ8A&_nc_ohc=hcuVjZeAH7IQ7kNvgF5Okil&_nc_oc=AdgjD0fcgvIqGIgVSRhklvFyBDIiLikRb7hnLop0p9PXYEiaLLBSaFHQ_JBdw72ewnw&_nc_zt=23&_nc_ht=scontent.fcrk1-5.fna&_nc_gid=AEREyhJUIPbNwkCQP4Iu4QI&oh=00_AYCrC-Vidz7zZMfEw5nd1ejVQWrysb0hP4xp1gHcjTqxrg&oe=6781D36B" alt="Image 2">
+            <img src="images/2.jpg" alt="Image 2">
+            <button onclick="showPopup()">More Info</button>
         </div>
         <div class="slide">
-            <img src="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-6/467776613_122179955642083924_5554084953700690490_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHEoApiYoxv_fKuCsC0sUCuTkKoNV73DuxOQqg1XvcO7J_IX6pNtMQ2IFzY1qevah3or-XR1YJS6CKpxGDfFe0N&_nc_ohc=otwnQpLJwFsQ7kNvgFN1QLE&_nc_oc=AdjfXESTfsv5Yvc942gPju2M-HzKF5kMTRzpKxejqQ5rYl-WS08GU4BbPix1SculIZo&_nc_zt=23&_nc_ht=scontent.fcrk1-3.fna&_nc_gid=AUiQUhQHxncmUfpZaKdecFB&oh=00_AYCQIOhEmEcCHHjjeZ8Ldjw-3oclROTanifT5b1LrGOJaw&oe=6781D674" alt="Image 3">
+            <img src="images/3.jpg" alt="Image 3">
+            <button onclick="showPopup()">More Info</button>
         </div>
         <button class="slider-arrow slider-prev" aria-label="Previous Slide">&lt;</button>
         <button class="slider-arrow slider-next" aria-label="Next Slide">&gt;</button>
         <div class="slider-nav"></div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="popup">
+        <h2 id="popup-title">Image Info</h2>
+        <p id="popup-content">Detailed information about the image will appear here.</p>
+        <img id="popup-image" src="" alt="Popup Image" style="max-width: 100%; height: auto; margin-top: 20px;">
+        <button onclick="closePopup()">Close</button>
     </div>
 
     <script>
@@ -286,6 +329,25 @@
         nextButton.addEventListener('click', nextSlide);
 
         setInterval(nextSlide, 5000);
+
+        // Show popup with information
+        function showPopup() {
+            const title = "A Legal Hand for Indigenous People";
+            const content = "DECEMBER 11, 2024 - Law student practitioners were invited by the Philippine Air Force, Tactical Operations Group 3 to provide legal services to the Indigenous People (IP) community in Sitio Sta. Rosa, Brgy., Sto. Niño, Bamban, as a part of the Medical, Dental, and Legal Services + Veterinary mission (MeDaLS + V). The law student practitioners were supervised by, MAMLAC Director, Atty. Mykedox Knoel T. Cuchapin and TSU School of Law Alumni, Atty. Alexander Garcia. The MeDaLS + V Mission, in partnership with other institutions, strengthens community ties and fosters a positive relationship between the local community, the government, and the local institutions. We would like to thank Group Commander Col. Marlon Parugaru of AFP-PAF for once again inviting our law student practitioners and giving them the opportunity to apply their legal knowledge and make a difference in the lives of the IP community.";
+            const imgUrl = "https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-6/473710252_122187922502083924_4969564912141227700_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGn9a2Ss1Eg6M_AA75L42kWAe1HqaJjBL0B7UepomMEvZaLhpBhyPNJmZAQ6pPRHjH2DvcO76eTLMtoXhMw0-SW&_nc_ohc=i8znspMYiFAQ7kNvgHOGQz0&_nc_oc=AdgLUG90s-i3gla-cTrud6U9L1OSMMzgE4Aco_hm-svJb6onOmE64T1fcGNJu1HDcJ8&_nc_zt=23&_nc_ht=scontent.fcrk1-3.fna&_nc_gid=AOzza_Bby-qA57I7389yRpR&oh=00_AYD21k21ojvS1LouFKLzi5-ZLY3yD1MZ7TBZ6wp2ZV6jlA&oe=678C3291" ;
+            const popupTitle = document.getElementById('popup-title');
+            const popupContent = document.getElementById('popup-content');
+            const popupImage = document.getElementById('popup-image');
+            popupTitle.textContent = title;
+            popupContent.textContent = content;
+            popupImage.src = imgUrl;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        // Close popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
     </script>
 </body>
 </html>
